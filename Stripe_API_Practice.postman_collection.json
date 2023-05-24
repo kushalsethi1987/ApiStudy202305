@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "75f4b68a-bf03-4ea5-b17f-cf0342f889f4",
+		"name": "Stripe_API_Practice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5108668",
+		"_collection_link": "https://skywindig.postman.co/workspace/2023~5fe50fc7-7dd9-4e93-885d-0acf6dd1929f/collection/5108668-75f4b68a-bf03-4ea5-b17f-cf0342f889f4?action=share&creator=5108668&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "add_a_customer",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"base_stripe_url\",\"https://api.stripe.com/v1/\");\r",
+							"console.log(\"This is the url that is received : \" +pm.environment.get(\"base_stripe_url\"));"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var create_customer_id=JSON.parse(responseBody);\r",
+							"var customer_id=create_customer_id.id;\r",
+							"pm.environment.set(\"customer_id_response\",\"customer_id\");\r",
+							"console.log(\"This is the customer id :\"  +customer_id);\r",
+							"console.log(\"This is the customer id created : \" +create_customer_id.id);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);\r",
+							"});\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"pm.test(\"Status code to be 200 or 201\", function (){pm.response.to.have.status(200);});\r",
+							"\r",
+							"pm.test(\"Respnose to have key id \", function(){pm.expect(pm.response.text()).to.include(\"id\");});\r",
+							"pm.test(\"Respnose to have key id value \", function(){pm.expect(create_customer_id.id).to.eql(customer_id)\r",
+							"});\r",
+							"pm.test(\"Respnose to have key id value not null \", function(){pm.expect(create_customer_id.id).not.eql(null)\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_stripe_url}}customers",
+					"host": [
+						"{{base_stripe_url}}customers"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "sk_test_WJTlE8wgK2mZ6HLN7RqZdx6O",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
