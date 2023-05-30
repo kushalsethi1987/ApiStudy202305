@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "b7e17f53-4554-4f94-9437-e6588c4e31cd",
+		"name": "Bluestacks_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5108668"
+	},
+	"item": [
+		{
+			"name": "get_suggested_apps",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var responsejson=pm.response.json();\r",
+							"\r",
+							"console.log(responsejson.suggested_apps[2].app_label);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "oem",
+							"value": "nxt",
+							"type": "text"
+						},
+						{
+							"key": "player_version",
+							"value": "5.0.100.1005",
+							"type": "text"
+						},
+						{
+							"key": "guid",
+							"value": "38252e6b-67d4-4fc8-82d5-8a6099774707",
+							"type": "text"
+						},
+						{
+							"key": "locale",
+							"value": "en-US",
+							"type": "text"
+						},
+						{
+							"key": "bluestacks_account_id",
+							"value": "crooked102@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "IN",
+							"type": "text"
+						},
+						{
+							"key": "instance",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "machine_id",
+							"value": "d5330612-22f5-411d-8dd6-7d0a986fecfb",
+							"type": "text"
+						},
+						{
+							"key": "version_machine_id",
+							"value": "99307fd8-313b-49c6-a63a-43af0ede3076",
+							"type": "text"
+						},
+						{
+							"key": "android_id",
+							"value": "9130f03fe0698ec9",
+							"type": "text"
+						},
+						{
+							"key": "android_image",
+							"value": "Nougat32",
+							"type": "text"
+						},
+						{
+							"key": "campaign_hash",
+							"value": "00003473161111f71547bbe118d76d31",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "install_id",
+							"value": "5e78a42b-71c3-4b5f-9450-2a70e3185cf2",
+							"type": "text"
+						},
+						{
+							"key": "android_home_version_code",
+							"value": "42.0",
+							"type": "text"
+						},
+						{
+							"key": "android_google_ad_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "android_resolution",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "installed_apps",
+							"value": "[{\"app_package\":\"com.bluestacks.settings\"},{\"app_package\":\"com.imangi.templerun\"},{\"app_package\":\"com.android.camera2\"},{\"app_package\":\"com.android.chrome\"},{\"app_package\":\"com.android.vending\"},{\"app_package\":\"com.bluestacks.filemanager\"}]",
+							"type": "text"
+						},
+						{
+							"key": "icon_height",
+							"value": "64",
+							"type": "text"
+						},
+						{
+							"key": "icon_width",
+							"value": "64",
+							"type": "text"
+						},
+						{
+							"key": "num_suggestions",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{bs_uri}}/get_suggested_apps",
+					"host": [
+						"{{bs_uri}}"
+					],
+					"path": [
+						"get_suggested_apps"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "bs_uri",
+			"value": "https://cloud.bluestacks.com/app_player"
+		}
+	]
+}

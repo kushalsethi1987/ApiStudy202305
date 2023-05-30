@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "8a3842a9-7b29-4d1f-b1e4-205f303f099d",
+		"name": "Stripe_Api_Reference_Global",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5108668"
+	},
+	"item": [
+		{
+			"name": "Create_Customer_Variable_Global",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{baseurl}}/customers?account_balance=40000",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"customers"
+					],
+					"query": [
+						{
+							"key": "account_balance",
+							"value": "40000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pariplay_History",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"RoundId\": \"urn-pariplay-01-prod-gameplay-6563266\",\r\n\t\"PlayerId\": \"G30_156431953\",\r\n\t\"Account\": {\r\n\t\t\"Username\": \"playzidolad\",\r\n\t\t\"Password\": \"Ub01nP!rtQ\"\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pariplay-01-prod.api.gib.playzido.com/history-viewer/History",
+					"protocol": "https",
+					"host": [
+						"pariplay-01-prod",
+						"api",
+						"gib",
+						"playzido",
+						"com"
+					],
+					"path": [
+						"history-viewer",
+						"History"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "sk_test_WJTlE8wgK2mZ6HLN7RqZdx6O",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://stripe.com"
+		}
+	]
+}

@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "ed7ae91c-5710-4589-9d0d-65ca6ac0d2d5",
+		"name": "Stripe_Api_DataDriven",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5108668"
+	},
+	"item": [
+		{
+			"name": "Create_Customers_Variable_csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{baseurlcsv}}/{{endpointcsv}}?account_balance=1500",
+					"host": [
+						"{{baseurlcsv}}"
+					],
+					"path": [
+						"{{endpointcsv}}"
+					],
+					"query": [
+						{
+							"key": "account_balance",
+							"value": "1500"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_customer_data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "sk_test_WJTlE8wgK2mZ6HLN7RqZdx6O",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

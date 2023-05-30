@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "26aa70b9-b9ec-47ab-90a4-3e9b316eb85a",
+		"name": "Stripe_API_Reference",
+		"description": "Mocking Stripe Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5108668"
+	},
+	"item": [
+		{
+			"name": "Create_Customers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/customers?account_balance=20000",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "account_balance",
+							"value": "20000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create_Customers_Variable",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{baseurl}}/customers?account_balance=25000",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"customers"
+					],
+					"query": [
+						{
+							"key": "account_balance",
+							"value": "25000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/customers/cus_DYD50yT6zQMU7C",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customers",
+						"cus_DYD50yT6zQMU7C"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Customer_variable",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{baseurl}}/customers/cus_DYQ9YbXUeBIhb3",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"customers",
+						"cus_DYQ9YbXUeBIhb3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update_Customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/customers/cus_DYD50yT6zQMU7C?email=kushal.sethi.nkaps@gmail.com",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customers",
+						"cus_DYD50yT6zQMU7C"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "kushal.sethi.nkaps@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update_Customer_variable",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/customers/cus_DYQ9YbXUeBIhb3?email=kushal.sethi@yahoo.com",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"customers",
+						"cus_DYQ9YbXUeBIhb3"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "kushal.sethi@yahoo.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "sk_test_WJTlE8wgK2mZ6HLN7RqZdx6O",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "https://api.stripe.com/v1",
+			"type": "string"
+		}
+	]
+}

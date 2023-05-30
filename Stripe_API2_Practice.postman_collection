@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "6459a560-5e2c-4453-a674-dc0b920c68b4",
+		"name": "Stripe_API_Practice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5108668",
+		"_collection_link": "https://skywindig.postman.co/workspace/Api_Rewind_New~2cdfb154-d702-4158-88eb-665011f96e8e/collection/5108668-6459a560-5e2c-4453-a674-dc0b920c68b4?action=share&creator=5108668&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Create_New_User",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "sk_test_WJTlE8wgK2mZ6HLN7RqZdx6O",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://api.stripe.com/v1/customers?description=This is a customer of api rewind 2019&email=kushal.sethi@outlook.com",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "This is a customer of api rewind 2019"
+						},
+						{
+							"key": "email",
+							"value": "kushal.sethi@outlook.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CPM",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

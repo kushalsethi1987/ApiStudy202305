@@ -1,0 +1,554 @@
+{
+	"info": {
+		"_postman_id": "8c11d008-7930-46a0-b7b6-c2ed877d7107",
+		"name": "POP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5108668"
+	},
+	"item": [
+		{
+			"name": "Launch",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response_json=pm.response.json();",
+							"pm.environment.set(\"tempToken\", response_json.secureToken);",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"skinId\": \"{{skinId}}\",\n    \"playerId\": \"{{playerId}}\",\n    \"password\": \"{{password}}\",\n    \"gameId\": \"{{gameId}}\",\n    \"_meta\": {\n        \"gsId\": \"{{gsId}}\",\n        \"gpId\": \"{{gpId}}\",\n        \"requestId\": \"{{$guid}}\",\n        \"clientPlatform\": \"mobile\",\n        \"clientType\": \"casino\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/v1/player/directlogin",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"player",
+						"directlogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verifyplayersession",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response_json=pm.response.json();",
+							"pm.environment.set(\"secureToken\", response_json.secureToken);",
+							"pm.environment.set(\"currencyCode\", response_json.accountBalance.currencyCode);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"secureToken\": \"{{tempToken}}\",\n    \"gameId\": \"{{gameId}}\",\n    \"_meta\": {\n        \"gsId\": \"{{gsId}}\",\n        \"gpId\": \"{{gpId}}\",\n        \"requestId\": \"{{$guid}}\",\n        \"clientPlatform\": \"mobile\",\n        \"clientType\": \"casino\"\n    },\n    \"localeCode\": \"en\",\n    \"playerId\": \"{{playerId}}\",\n    \"accountId\": \"{{playerId}}\",\n    \"skinId\": \"{{skinId}}\",\n    \"channelType\": \"mobile\",\n    \"includeUrls\": true\n}"
+				},
+				"url": {
+					"raw": "{{url}}/v1/player/verifyplayersession",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"player",
+						"verifyplayersession"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getplayerinfo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_meta\": {\n        \"requestId\": \"{{$guid}}\",\n        \"gsId\": \"{{gsId}}\",\n        \"gpId\": \"{{gpId}}\"\n    },\n    \"skinId\": \"{{skinId}}\",\n    \"playerId\": \"{{playerId}}\",\n    \"secureToken\": \"{{secureToken}}\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/v1/player/getplayerinfo",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"player",
+						"getplayerinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "version",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/info/version",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"info",
+						"version"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loginandgettemptoken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response_json=pm.response.json();",
+							"pm.environment.set(\"secureToken\", response_json.tempToken);",
+							"// pm.environment.set(\"currencyCode\", response_json.accountBalance.currencyCode);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_meta\": {\n        \"requestId\": \"{{$guid}}\",\n        \"gsId\": \"{{gsId}}\",\n        \"gpId\": \"{{gpId}}\",\n        \"clientPlatform\": \"mobile\",\n        \"clientType\": \"casino\"\n    },\n    \"skinId\": \"{{skinId}}\",\n    \"playerId\": \"{{playerId}}\",\n    \"password\": \"{{password}}\",\n    \"language\": \"en\",\n    \"gameId\": \"{{gameId}}\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/v1/player/loginandgettemptoken",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"player",
+						"loginandgettemptoken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getplayerbalance",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_meta\": {\n        \"requestId\": \"{{$guid}}\",\n        \"gsId\": \"{{gsId}}\",\n        \"gpId\": \"{{gpId}}\",\n        \"clientPlatform\": \"mobile\",\n        \"clientType\": \"casino\"\n    },\n    \"secureToken\": \"{{secureToken}}\",\n    \"playerId\": \"{{playerId}}\",\n    \"skinId\": \"{{skinId}}\",\n    \"localeCode\": \"en\",\n    \"accountId\": \"{{playerId}}\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/v1/player/getplayerbalance",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"player",
+						"getplayerbalance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"skinId\": \"{{skinId}}\",\n    \"playerId\": \"{{playerId}}\",\n    \"secureToken\": \"{{secureToken}}\",\n    \"_meta\": {\n        \"requestId\": \"{{$guid}}\",\n        \"gsId\": \"{{gsId}}\",\n        \"gpId\": \"{{gpId}}\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/v1/player/logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"player",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resumebrokengame",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"skinId\": \"{{skinId}}\",\n    \"playerId\": \"{{playerId}}\",\n    \"secureToken\": \"{{secureToken}}\",\n    \"brokenGameId\": \"{{brokenGameId}}\",\n    \"_meta\": {\n        \"requestId\": \"{{$guid}}\",\n        \"gsId\": \"{{gsId}}\",\n        \"gpId\": \"{{gpId}}\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/v1/gamesession/resumebrokengame",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"gamesession",
+						"resumebrokengame"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createbrokengame",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response_json=pm.response.json();",
+							"pm.environment.set(\"brokenGameId\", response_json.brokenGameId);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"skinId\": \"{{skinId}}\",\n    \"playerId\": \"{{playerId}}\",\n    \"secureToken\": \"{{secureToken}}\",\n    \"brokenGameId\": \"{{$guid}}\",\n    \"gameCycleId\": \"{{gameCycleId}}\",\n    \"_meta\": {\n        \"requestId\": \"{{$guid}}\",\n        \"gsId\": \"{{gsId}}\",\n        \"gpId\": \"{{gpId}}\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/v1/gamesession/createbrokengame",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"gamesession",
+						"createbrokengame"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "moneytransactions",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var current_timestamp = new Date();",
+							"postman.setEnvironmentVariable(\"current_timestamp\", current_timestamp.toISOString());"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response_json=pm.response.json();",
+							"pm.environment.set(\"transId\", response_json.moneyAckArray[0].transId);",
+							"pm.environment.set(\"gameCycleId\", response_json.gameCycleId);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_meta\": {\n        \"requestId\": \"{{$guid}}\",\n        \"gsId\": \"{{gsId}}\",\n        \"gpId\": \"{{gpId}}\",\n        \"clientaPlatform\": \"mobile\",\n        \"clientType\": \"casino\"\n    },\n    \"secureToken\": \"{{secureToken}}\",\n    \"playerId\": \"{{playerId}}\",\n    \"accountId\": \"{{playerId}}\",\n    \"localeCode\": \"en_US\",\n    \"gameId\": \"{{gameId}}\",\n    \"gameCycleId\": \"{{$guid}}\",\n    \"skinId\": \"{{skinId}}\",\n    \"currencyCode\": \"{{currencyCode}}\",\n    \"moneyTransArray\": [\n        {\n            \"transSeq\": 2,\n            \"transId\": \"{{$guid}}\",\n            \"transAmt\": 10,\n            \"transType\": \"debit\",\n            \"transDateTime\": \"{{current_timestamp}}\",\n            \"transCategory\": \"win\",\n            \"transDesc\": \"string\"\n        }\n    ],\n    \"gameCycleStarted\": true,\n    \"gameCycleFinished\": true,\n    \"gameCycleStartDateTime\": \"{{current_timestamp}}\"\n}\n\n"
+				},
+				"url": {
+					"raw": "{{url}}/v1/gamesession/moneytransactions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"gamesession",
+						"moneytransactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "canceltransactions",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_meta\": {\n        \"requestId\": \"{{$guid}}\",\n        \"gsId\": \"{{gsId}}\",\n        \"gpId\": \"{{gpId}}\",\n        \"clientPlatform\": \"mobile\",\n        \"clientType\": \"casino\"\n    },\n    \"secureToken\": \"{{secureToken}}\",\n    \"playerId\": \"{{playerId}}\",\n    \"gameId\": \"{{gameId}}\",\n    \"skinId\": \"{{skinId}}\",\n    \"gameCycleId\": \"{{gameCycleId}}\",\n    \"cancelTransArray\": [\n        {\n            \"transSeq\": 1,\n            \"transId\": \"{{$guid}}\",\n            \"referenceId\": \"{{transId}}\",\n            \"originalTransDate\": \"{{current_timestamp}}\",\n            \"transDateTime\": \"{{current_timestamp}}\"\n            \n            \n        }\n    ],\n    \"gameCycleFinished\": true,\n    \"gameCycleFinishDateTime\": \"{{current_timestamp}}\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/v1/gamesession/canceltransactions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"gamesession",
+						"canceltransactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lauch URL",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:6543/launch/test-host/playtechpop-wallet?game={{gameId}}&real=1&username={{playerId}}&token={{tempToken}}&language=en&casino={{skinId}}&clientplatform=flash&clienttype=casino&backurl=http://playtech.com&gamehistoryurl=http://licenseehistoryurl.com&crosslaunchurl=http://popuuurl.com&imsgame={{gameId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6543",
+					"path": [
+						"launch",
+						"test-host",
+						"playtechpop-wallet"
+					],
+					"query": [
+						{
+							"key": "game",
+							"value": "{{gameId}}"
+						},
+						{
+							"key": "real",
+							"value": "1"
+						},
+						{
+							"key": "username",
+							"value": "{{playerId}}"
+						},
+						{
+							"key": "token",
+							"value": "{{tempToken}}"
+						},
+						{
+							"key": "language",
+							"value": "en"
+						},
+						{
+							"key": "casino",
+							"value": "{{skinId}}"
+						},
+						{
+							"key": "clientplatform",
+							"value": "flash"
+						},
+						{
+							"key": "clienttype",
+							"value": "casino"
+						},
+						{
+							"key": "backurl",
+							"value": "http://playtech.com"
+						},
+						{
+							"key": "gamehistoryurl",
+							"value": "http://licenseehistoryurl.com"
+						},
+						{
+							"key": "crosslaunchurl",
+							"value": "http://popuuurl.com"
+						},
+						{
+							"key": "imsgame",
+							"value": "{{gameId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "realitycheck",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_meta\": {\n        \"gsId\": \"{{gsId}}\",\n        \"gpId\": \"{{gpId}}\",\n        \"requestId\": \"{{$guid}}\",\n        \"clientPlatform\": \"mobile\",\n        \"clientType\": \"casino\"\n    },\n    \n    \"skinId\": \"{{skinId}}\",\n    \"playerId\": \"{{playerId}}\",\n    \"secureToken\": \"{{secureToken}}\",\n    \"userAction\": \"reset\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/gamesession/regulation/uk/realitycheckdialogresponse",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"gamesession",
+						"regulation",
+						"uk",
+						"realitycheckdialogresponse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "automaticreminder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"skinId\": \"{{skinId}}\",\n    \"playerId\": \"{{playerId}}\",\n    \"secureToken\": \"{{secureToken}}\",\n    \"_meta\": {\n        \"gsId\": \"{{gsId}}\",\n        \"gpId\": \"{{gpId}}\",\n        \"requestId\": \"{{$guid}}\",\n        \"clientPlatform\": \"mobile\",\n        \"clientType\": \"casino\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/gamesession/regulation/ro/automaticreminder",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"gamesession",
+						"regulation",
+						"ro",
+						"automaticreminder"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

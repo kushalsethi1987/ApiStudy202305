@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "0e996682-0ac1-4533-a62e-3bd2894a0213",
+		"name": "Practicing_Stripe_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5108668"
+	},
+	"item": [
+		{
+			"name": "Create_Customer_Stripe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var json=JSON.parse(responseBody);\r",
+							"pm.environment.set(\"customer_id\",json.id);\r",
+							"pm.test(\"Status Code to be 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Email Should be as expected\", function () {\r",
+							"   pm.expect(json.email).to.eql(data.email);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{stripe_base_url}}{{stripe_basepath}}{{customer_endpoint}}?email={{email}}&description={{description}}&phone={{phone}}",
+					"host": [
+						"{{stripe_base_url}}{{stripe_basepath}}{{customer_endpoint}}"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "{{email}}"
+						},
+						{
+							"key": "description",
+							"value": "{{description}}"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve_a_customer_Stripe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonresponse=JSON.parse(responseBody)\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{stripe_base_url}}{{stripe_basepath}}{{customer_endpoint}}/{{customer_id}}",
+					"host": [
+						"{{stripe_base_url}}{{stripe_basepath}}{{customer_endpoint}}"
+					],
+					"path": [
+						"{{customer_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_a_customer_Stripe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonobjectdelete=JSON.parse(responseBody);\r",
+							"pm.test(\"Customer Id Should be as expected\", function () {\r",
+							"   pm.expect(jsonobjectdelete.id).to.eql(pm.environment.get(\"customer_id\"));\r",
+							"});\r",
+							"pm.environment.unset(\"customer_id\");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{stripe_base_url}}{{stripe_basepath}}{{customer_endpoint}}/{{customer_id}}",
+					"host": [
+						"{{stripe_base_url}}{{stripe_basepath}}{{customer_endpoint}}"
+					],
+					"path": [
+						"{{customer_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "sk_test_WJTlE8wgK2mZ6HLN7RqZdx6O",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "9db29823-bf65-4379-91bf-0a3d77ad7200",
+		"name": "temple run",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5108668"
+	},
+	"item": [
+		{
+			"name": "http://localhost:2861/dmm/v1/install-app",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "x_api_token",
+						"value": "6ba110d2-d131-4698-91ea-d9af480808d6",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"app_package_name\": \"com.imangi.templerun\",\r\n  \"app_download_url\": \"http://cdn3.bluestacks.com/public/appsettings/GamePop/apps/com.imangi.templerun.apk\",\r\n  \"app_version_code\": 13\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:2861/dmm/v1/install-app",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2861",
+					"path": [
+						"dmm",
+						"v1",
+						"install-app"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:2861/dmm/v1/get-progress",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "x_api_token",
+						"value": "6ba110d2-d131-4698-91ea-d9af480808d6",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"app_package_name\": \"com.imangi.templerun\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:2860/dmm/v1/get-progress",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2860",
+					"path": [
+						"dmm",
+						"v1",
+						"get-progress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:2861/runapp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "x_api_token",
+						"value": "6ba110d2-d131-4698-91ea-d9af480808d6",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"package\": \"com.imangi.templerun\",\r\n  \"activity\": \"com.unity3d.player.UnityPlayerProxyActivity\",\r\n  \"is_keymap_enabled\": \"true\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:2861/runapp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2861",
+					"path": [
+						"runapp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:2861/runapp-mac",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"package\": \"com.imangi.templerun\",\r\n  \"activity\": \"com.unity3d.player.UnityPlayerProxyActivity\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:2860/runapp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2860",
+					"path": [
+						"runapp"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "4b4b8953-c37c-4e65-9e71-63b2d3f9014b",
+		"name": "Stripe_Api_prescriptvariable_javascript",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5108668"
+	},
+	"item": [
+		{
+			"name": "Add_customer_javascript",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.set(\"baseurlscript\", \"https://api.stripe.com/v1\");",
+							"pm.environment.set(\"endpointscript\",\"customers\");",
+							"console.log(\"Name of the environment variable is \"+pm.environment.get(\"baseurlscript\"));",
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var Jsonresponse=JSON.parse(responseBody);",
+							"var newendpoint=Jsonresponse.id;",
+							"pm.environment.set(\"endpoint\",newendpoint);",
+							"console.log(newendpoint);",
+							"",
+							"",
+							"let response=pm.response.json();",
+							"saveData=JSON.stringify(response);",
+							"pm.environment.set(\"savedata\",saveData);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "{{baseurlscript}}/{{endpointscript}}?account_balance=2000",
+					"host": [
+						"{{baseurlscript}}"
+					],
+					"path": [
+						"{{endpointscript}}"
+					],
+					"query": [
+						{
+							"key": "account_balance",
+							"value": "2000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_customer_javascript",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"myData\" :[{{savedata}}]\n}"
+				},
+				"url": {
+					"raw": "{{baseurlscript}}/customers/{{endpoint}}?email=bjhjhjh@gmail.com",
+					"host": [
+						"{{baseurlscript}}"
+					],
+					"path": [
+						"customers",
+						"{{endpoint}}"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "bjhjhjh@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "sk_test_WJTlE8wgK2mZ6HLN7RqZdx6O",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

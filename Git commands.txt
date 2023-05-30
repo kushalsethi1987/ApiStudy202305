@@ -1,0 +1,38 @@
+git init
+git status
+git add .
+git add "file name"
+git commit -m ""
+git log
+git config user.name ""
+git config user.email ""
+git branch
+git branch branchname
+git checkout branchname
+git remote add origin https://github.com/kushalsethi1987/ApiStudy202305.git
+git remote -v
+git push -u origin branchname
+.gitignore (Add file name to ignore the file to be pushed)
+touch test.java (Create a file name)
+git merge branchname (Merge from master branch by using checkout)
+git pull origin master
+git fetch origin master
+git reset HEAD filename (Unstaging)
+git log --oneline
+git reset --soft<commitid>
+git push -f origin branchname
+git reset --mixed<commitid>
+
+difference between fetch and pull
+generate pull request
+git ssh
+bitbucket
+pipelining
+html report generation 
+how to pass json body in post request\
+know the parent branch name of a branch 
+
+
+This@Can@Be@Me@12
+
+https://github.com/kushalsethi1987/ApiStudy202305.git
