@@ -23,6 +23,7 @@ git reset --soft<commitid>
 git push -f origin branchname
 git reset --mixed<commitid>
 
+
 difference between fetch and pull
 generate pull request
 git ssh
@@ -30,7 +31,8 @@ bitbucket
 pipelining
 html report generation 
 how to pass json body in post request\
-know the parent branch name of a branch 
+know the parent branch name of a branch
+I will succeed
 
 
 This@Can@Be@Me@12
