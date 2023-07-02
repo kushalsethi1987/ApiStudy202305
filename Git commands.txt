@@ -23,7 +23,8 @@ git reset --soft<commitid>
 git push -f origin branchname
 git reset --mixed<commitid>
 
-
+https://dzone.com/articles/top-20-git-commands-with-examples
+https://www.atlassian.com/git/glossary
 difference between fetch and pull
 generate pull request
 git ssh
