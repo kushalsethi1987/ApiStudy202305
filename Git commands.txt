@@ -22,7 +22,7 @@ git log --oneline
 git reset --soft<commitid>
 git push -f origin branchname
 git reset --mixed<commitid>
-
+git remote
 
 difference between fetch and pull
 generate pull request

@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "d127b316-d2f4-46bb-9044-4a7ed7b91b95",
+		"name": "Interview_Questions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5108668",
+		"_collection_link": "https://www.postman.com/skywindig/workspace/interview/collection/5108668-d127b316-d2f4-46bb-9044-4a7ed7b91b95?action=share&creator=5108668&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Default_home_layout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response=JSON.parse(responseBody)\r",
+							"var items=response.layout.items[0]\r",
+							"console.log(items)\r",
+							"\r",
+							"pm.test(\"Status Code to be 200\",function(){\r",
+							"\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"App package name to have bluestacks settings\",function(){\r",
+							"\r",
+							"    pm.expect(pm.response.text()).to.include(\"com.bluestacks.settings\")\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(20000);\r",
+							"});\r",
+							"\r",
+							"tests[\"App_package should be correct\"]= items\r",
+							"\r",
+							"pm.environment.unset(\"baseUrl\");\r",
+							"pm.environment.unset(\"endPoint\");\r",
+							"pm.environment.unset(\"android_id\")\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"baseUrl\", \"app_player/\");\r",
+							"pm.environment.set(\"endPoint\", \"get_default_home_layout\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{Environment}}{{baseUrl}}{{endPoint}}?android_id={{android_id}}&android_image={{android_image}}&campaign_hash={{campaign_hash}}&country={{country}}&guid={{guid}}&hypervisor={{hypervisor}}&install_id={{install_id}}&instance={{instance}}&locale={{locale}}&machine_id={{machine_id}}&oem={{oem}}&player_version={{player_version}}&session_id={{session_id}}&version_machine_id={{version_machine_id}}",
+					"host": [
+						"{{Environment}}{{baseUrl}}{{endPoint}}"
+					],
+					"query": [
+						{
+							"key": "android_id",
+							"value": "{{android_id}}"
+						},
+						{
+							"key": "android_image",
+							"value": "{{android_image}}"
+						},
+						{
+							"key": "campaign_hash",
+							"value": "{{campaign_hash}}"
+						},
+						{
+							"key": "country",
+							"value": "{{country}}"
+						},
+						{
+							"key": "guid",
+							"value": "{{guid}}"
+						},
+						{
+							"key": "hypervisor",
+							"value": "{{hypervisor}}"
+						},
+						{
+							"key": "install_id",
+							"value": "{{install_id}}"
+						},
+						{
+							"key": "instance",
+							"value": "{{instance}}"
+						},
+						{
+							"key": "locale",
+							"value": "{{locale}}"
+						},
+						{
+							"key": "machine_id",
+							"value": "{{machine_id}}"
+						},
+						{
+							"key": "oem",
+							"value": "{{oem}}"
+						},
+						{
+							"key": "player_version",
+							"value": "{{player_version}}"
+						},
+						{
+							"key": "session_id",
+							"value": "{{session_id}}"
+						},
+						{
+							"key": "version_machine_id",
+							"value": "{{version_machine_id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "sk_test_WJTlE8wgK2mZ6HLN7RqZdx6O",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://api.stripe.com/v1/customers?description=This is a customer of api rewind 2019&email=kushal.sethi@outlook.com",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "This is a customer of api rewind 2019"
+						},
+						{
+							"key": "email",
+							"value": "kushal.sethi@outlook.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Environment",
+			"value": "https://bs3-appcenter-engg.appspot.com/",
+			"type": "string"
+		}
+	]
+}
