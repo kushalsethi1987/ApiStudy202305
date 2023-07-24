@@ -22,9 +22,16 @@ git log --oneline
 git reset --soft<commitid>
 git push -f origin branchname
 git reset --mixed<commitid>
+git remote
 
+<<<<<<< HEAD
 https://dzone.com/articles/top-20-git-commands-with-examples
 https://www.atlassian.com/git/glossary
+=======
+git checkout HEAD FILENAME (To restore a file deleted)
+git rm FILENAME (To delete a file)
+
+>>>>>>> master
 difference between fetch and pull
 generate pull request
 git ssh

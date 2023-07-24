@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "4249807c-c0d7-43ce-a863-1bb841478411",
+		"name": "Practice_Blustacks_APIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5108668",
+		"_collection_link": "https://skywindig.postman.co/workspace/Api_Rewind_New~2cdfb154-d702-4158-88eb-665011f96e8e/collection/5108668-4249807c-c0d7-43ce-a863-1bb841478411?action=share&creator=5108668&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Default_home_layout",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"baseUrl\", \"app_player/\");\r",
+							"pm.environment.set(\"endPoint\", \"get_default_home_layout\");\r",
+							"pm.environment.set(\"android_id\",\"data.android_id\")"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response=JSON.parse(responseBody)\r",
+							"var items=response.layout.items[0]\r",
+							"console.log(items)\r",
+							"\r",
+							"pm.test(\"\",function(){\r",
+							"\r",
+							"    pm.response.to.have.status(200)\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{Environment}}{{baseUrl}}{{endPoint}}?android_id=90c344a2067fdb95&android_image=Pie64&campaign_hash=36f9c514f6c3d7fc74c3b96376e9bde6&country=IN&guid=fdbbd6ad-a430-4140-9f46-7cfe27c2b607&hypervisor=vbox&install_id=bfcde5b6-731d-4fa6-b961-d0c0655ee570&instance=Pie64&locale=en-US&machine_id=fdbbd6ad-a430-4140-9f46-7cfe27c2b607&oem=nxt&player_version=5.12.1.1001&session_id=3&version_machine_id=caab1847-1c6b-42f6-8509-8dfd2daf093f",
+					"host": [
+						"{{Environment}}{{baseUrl}}{{endPoint}}"
+					],
+					"query": [
+						{
+							"key": "android_id",
+							"value": "90c344a2067fdb95"
+						},
+						{
+							"key": "android_image",
+							"value": "Pie64"
+						},
+						{
+							"key": "campaign_hash",
+							"value": "36f9c514f6c3d7fc74c3b96376e9bde6"
+						},
+						{
+							"key": "country",
+							"value": "IN"
+						},
+						{
+							"key": "guid",
+							"value": "fdbbd6ad-a430-4140-9f46-7cfe27c2b607"
+						},
+						{
+							"key": "hypervisor",
+							"value": "vbox"
+						},
+						{
+							"key": "install_id",
+							"value": "bfcde5b6-731d-4fa6-b961-d0c0655ee570"
+						},
+						{
+							"key": "instance",
+							"value": "Pie64"
+						},
+						{
+							"key": "locale",
+							"value": "en-US"
+						},
+						{
+							"key": "machine_id",
+							"value": "fdbbd6ad-a430-4140-9f46-7cfe27c2b607"
+						},
+						{
+							"key": "oem",
+							"value": "nxt"
+						},
+						{
+							"key": "player_version",
+							"value": "5.12.1.1001"
+						},
+						{
+							"key": "session_id",
+							"value": "3"
+						},
+						{
+							"key": "version_machine_id",
+							"value": "caab1847-1c6b-42f6-8509-8dfd2daf093f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Default_home_layout_with_external_data",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"baseUrl\", \"app_player/\");\r",
+							"pm.environment.set(\"endPoint\", \"get_default_home_layout\");\r",
+							"pm.environment.set(\"android_id\",\"data.android_id\")"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response=JSON.parse(responseBody)\r",
+							"var items=response.layout.items[0]\r",
+							"console.log(items)\r",
+							"\r",
+							"pm.test(\"\",function(){\r",
+							"\r",
+							"    pm.response.to.have.status(200)\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{Environment}}{{baseUrl}}{{endPoint}}?android_id={{android_id}}&android_image={{android_image}}&campaign_hash={{campaign_hash}}&country={{country}}&guid={{guid}}&hypervisor={{hypervisor}}&install_id={{install_id}}&instance={{instance}}&locale={{locale}}&machine_id={{machine_id}}&oem={{oem}}&player_version={{player_version}}&session_id={{session_id}}&version_machine_id={{version_machine_id}}",
+					"host": [
+						"{{Environment}}{{baseUrl}}{{endPoint}}"
+					],
+					"query": [
+						{
+							"key": "android_id",
+							"value": "{{android_id}}"
+						},
+						{
+							"key": "android_image",
+							"value": "{{android_image}}"
+						},
+						{
+							"key": "campaign_hash",
+							"value": "{{campaign_hash}}"
+						},
+						{
+							"key": "country",
+							"value": "{{country}}"
+						},
+						{
+							"key": "guid",
+							"value": "{{guid}}"
+						},
+						{
+							"key": "hypervisor",
+							"value": "{{hypervisor}}"
+						},
+						{
+							"key": "install_id",
+							"value": "{{install_id}}"
+						},
+						{
+							"key": "instance",
+							"value": "{{instance}}"
+						},
+						{
+							"key": "locale",
+							"value": "{{locale}}"
+						},
+						{
+							"key": "machine_id",
+							"value": "{{machine_id}}"
+						},
+						{
+							"key": "oem",
+							"value": "{{oem}}"
+						},
+						{
+							"key": "player_version",
+							"value": "{{player_version}}"
+						},
+						{
+							"key": "session_id",
+							"value": "{{session_id}}"
+						},
+						{
+							"key": "version_machine_id",
+							"value": "{{version_machine_id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
