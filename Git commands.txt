@@ -4,8 +4,11 @@ git add .
 git add "file name"
 git commit -m ""
 git log
+git clone -v repository url
 git config user.name ""
 git config user.email ""
+git config --global user.name ""
+git config --global user.email ""
 git branch
 git branch branchname
 git checkout branchname
@@ -24,14 +27,12 @@ git push -f origin branchname
 git reset --mixed<commitid>
 git remote
 
-<<<<<<< HEAD
+
 https://dzone.com/articles/top-20-git-commands-with-examples
 https://www.atlassian.com/git/glossary
-=======
 git checkout HEAD FILENAME (To restore a file deleted)
 git rm FILENAME (To delete a file)
 
->>>>>>> master
 difference between fetch and pull
 generate pull request
 git ssh
