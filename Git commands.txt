@@ -26,7 +26,7 @@ git reset --soft<commitid>
 git push -f origin branchname
 git reset --mixed<commitid>
 git remote
-
+git reset --hard<commitid>
 git checkout HEAD FILENAME (To restore a file deleted)
 git rm FILENAME (To delete a file)
 
