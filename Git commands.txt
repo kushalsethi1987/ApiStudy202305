@@ -4,8 +4,11 @@ git add .
 git add "file name"
 git commit -m ""
 git log
+git clone -v repository url
 git config user.name ""
 git config user.email ""
+git config --global user.name ""
+git config --global user.email ""
 git branch
 git branch branchname
 git checkout branchname
